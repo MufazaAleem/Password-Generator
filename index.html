@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #password {
+            font-size: 24px;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Generator</h1>
+    <div>
+        <button onclick="generatePassword()">Generate Password</button>
+    </div>
+    <div>
+        <input type="text" id="password" readonly>
+    </div>
+    
+    <script>
+        function generatePassword() {
+            const length = 12; // Change this to your desired password length
+            const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset.charAt(randomIndex);
+            }
+            document.getElementById("password").value = password;
+        }
+    </script>
+</body>
+</html>
